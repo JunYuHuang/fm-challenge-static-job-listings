@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect} from 'react';
+import { JobListingType, JobFilterType } from "./API";
+import JobListing from "./components/JobListing";
+import FilterBar from "./components/FilterBar";
 
 function App() {
+  const [jobListings, setJobListings] = useState<JobListingType[]>([]);
+  const [jobFilters, setJobFilters] = useState<JobFilterType | null>();
+
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((res) => {
+        setJobListings(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen font-sans bg-cyan-lightGrayishFilterTablets min-h-full">
+      <div className="h-40 bg-cyan bg-bg-header-mobile md:bg-bg-header-desktop"></div>
+      <div className="mx-6 mb-8 relative">
+        <FilterBar />
+        { jobListings.map((jobListing: JobListingType) => {
+          return <JobListing key={jobListing.id} {...jobListing} />;
+        })}
+      </div>
     </div>
   );
 }
