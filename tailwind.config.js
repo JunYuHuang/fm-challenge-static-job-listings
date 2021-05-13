@@ -37,6 +37,9 @@ module.exports = {
         favicon: "url('/public/images/favicon-32x32.png')",
         "icon-remove": "url('/public/images/icon-remove.svg')",
       }),
+      maxWidth: {
+        desktop: "1110px",
+      },
     },
   },
   variants: {

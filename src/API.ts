@@ -14,13 +14,6 @@ export interface JobListingType {
     tools: string[]
 };
 
-export type JobFilterType = {
-    role: string,
-    level: string,
-    languages: string[],
-    tools: string[]
-};
-
 // export async function fetchJobListings(): Promise<JobListingType[]> {
 //     const API_URL = "data.json";
 //     const data = await (await fetch(API_URL)).json();
