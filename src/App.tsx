@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { JobListingInterface, NewJobListingInterface } from "./API";
 import JobListing from "./components/JobListing";
 import FilterBar from "./components/FilterBar";
