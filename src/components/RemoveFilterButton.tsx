@@ -1,5 +1,3 @@
-import React from "react";
-
 interface RemoveFilterButtonProps {
     buttonText: string,
     removeJobFilter: (filter: string) => void

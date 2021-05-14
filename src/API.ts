@@ -1,4 +1,4 @@
-export interface JobListingType {
+export interface JobListingInterface {
     id: number,
     company: string,
     logo: string,
@@ -13,6 +13,19 @@ export interface JobListingType {
     languages: string[],
     tools: string[]
 };
+
+export interface NewJobListingInterface {
+    id: number,
+    company: string,
+    logo: string,
+    new: boolean,
+    featured: boolean,
+    position: string,
+    postedAt: string,
+    contract: string,
+    location: string,
+    filterTags: string[],
+}
 
 // export async function fetchJobListings(): Promise<JobListingType[]> {
 //     const API_URL = "data.json";

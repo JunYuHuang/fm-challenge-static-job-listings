@@ -1,5 +1,3 @@
-import React from "react";
-
 interface AddFilterButtonProps {
     buttonText: string,
     addJobFilter: (filter: string) => void

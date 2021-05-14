@@ -1,4 +1,3 @@
-import React from "react";
 import RemoveFilterButton from "./RemoveFilterButton";
 
 interface Props {

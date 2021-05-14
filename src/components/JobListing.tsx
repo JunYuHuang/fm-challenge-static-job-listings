@@ -1,27 +1,13 @@
-import React from "react";
-import { JobListingType } from "../API";
+import { NewJobListingInterface } from "../API";
 import AddFilterButton from "./AddFilterButton";
 
 interface Props {
-    jobListing: JobListingType,
+    jobListing: NewJobListingInterface,
     addJobFilter: (filter: string) => void
 }
 
 function JobListing({ jobListing, addJobFilter }: Props) {
-    let { 
-        id,
-        company,
-        logo,
-        // new,
-        featured,
-        position,
-        role,
-        level,
-        postedAt,
-        contract,
-        location,
-        languages,
-        tools } = jobListing;
+    let { id, company, logo, featured, position, postedAt, contract, location, filterTags } = jobListing;
 
     return (
         <div key={`posting-${id}`} className={`bg-white mt-10 first:mt-14 rounded shadow-lg p-6 relative border-l-4 border-solid ${featured ? "border-cyan" : ""} xl:flex xl:flex-row xl:justify-start xl:p-8 xl:mt-6 xl:first:mt-20`}>
@@ -45,13 +31,8 @@ function JobListing({ jobListing, addJobFilter }: Props) {
             </div>
             <hr className="mt-3 border-solid border-1 border-grey xl:hidden" />
             <div className="xl:flex-grow xl:flex xl:flex-row xl:justify-end xl:items-center">
-                <AddFilterButton key={`filter-${role}`} buttonText={role} addJobFilter={addJobFilter} />
-                <AddFilterButton key={`filter-${level}`} buttonText={level} addJobFilter={addJobFilter}  />
-                { languages.map((language) => {
-                    return <AddFilterButton key={`filter-${language}`} buttonText={language} addJobFilter={addJobFilter}  />;
-                })}
-                { tools.map((tool) => {
-                    return <AddFilterButton key={`filter-${tool}`} buttonText={tool} addJobFilter={addJobFilter}  />;
+                { filterTags.map((filterTag) => {
+                    return <AddFilterButton key={`filter-${filterTag}`} buttonText={filterTag} addJobFilter={addJobFilter}  />;
                 })}
             </div>
         </div>
